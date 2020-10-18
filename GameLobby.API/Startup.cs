@@ -36,9 +36,10 @@ namespace GameLobby.API
                     builder =>
                     {
                         builder
-                            .AllowAnyOrigin()
+                            .WithOrigins(Configuration.GetConnectionString("ReactConnection"))
                             .AllowAnyHeader()
-                            .AllowAnyMethod();
+                            .AllowAnyMethod()
+                            .AllowCredentials();
                     });
             });
             services.AddControllers();
