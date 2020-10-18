@@ -114,12 +114,11 @@ namespace GameLobby.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("CorsPolicy");
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseCors("CorsPolicy");
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<LobbyHub>("/chat", options => {
